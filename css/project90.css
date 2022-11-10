@@ -111,6 +111,83 @@ header {
     background-color: #fe4c50;
 }
 
+.side-cart{
+    display: none;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
+    background-color: #ccc;
+    width: 300px;
+    min-height: 150px;
+    max-height: 500px;
+    color: #f0f0f0;
+    z-index: 15;
+    position: fixed;
+    top: 40px;
+    right: 10px;
+    text-align: center;
+    /* animation: fade 1s; */
+    border-radius: 12px;
+    box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+.side-cart::-webkit-scrollbar{
+    display: none;
+}
+
+.cart-footer{
+    /* position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* bottom: 0;
+    left: 0; */
+}
+
+.cart-footer p, .cart-footer span{
+    font-size: 15px;
+}
+
+.checkout{
+    border: none;
+    background: red;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+.side-cart ul {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-cart .buyItem {
+    border-bottom: #aaa 1px solid;
+    width: 90%;
+    padding: 10px 0;
+    display: flex;
+}
+
+.side-cart img {
+    width: 90px;
+}
+
+.bag-icon:hover .side-cart{
+    display: block;
+    transition: 3s all ease-in-out;
+}
+
+.empty{
+    font-size: 15px;
+    /* top: 50%; */
+    /* margin-top: 60px; */
+}
+
 .items a:hover {
     transition: 0.5 all ease;
     color: black;
@@ -155,10 +232,27 @@ header {
     font-size: var(--font-medium);
     cursor: pointer;
     position: relative;
-
-
-
 }
+
+.bag-icon{
+    position: relative;
+    background: #eee;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.item-count{
+    position: absolute;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 4px 7px;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+
 .icon-3
 {
  position: relative; 
@@ -605,7 +699,7 @@ header {
 }
 
 .arrivals-info h6 {
-
+    text-align: center;
     font-size: 1.3rem;
     margin: 0.2rem 0rem;
 
@@ -859,7 +953,7 @@ header {
 
 
 .seller-content h6 {
-
+    text-align: center;
     font-size: 1.3rem;
     margin: 0.2rem 0rem;
 

@@ -64,7 +64,32 @@
                         </div>
                     </div>
                 </i>
-                <i class="fa-solid fa-bag-shopping icon-2"></i>
+                <div class="bag-icon">
+                    <i class="fa-solid fa-bag-shopping icon-2 bag-icon"></i>
+                    <span class="cart-icon-2" id="item-count">0</span>
+                    <div class="side-cart">
+                        <ul id="buyItems">
+                            <h4 class="empty">Your shopping cart is empty</h4>
+                            <!-- <li class="buyItem">
+                                    <img src="Images/producs-images/Mobiles/galaxynote10.png">
+                                    <div>
+                                        <h5>Products Name</h5>
+                                        <h6>$199</h6>
+                                        <div>
+                                            <button>-</button>
+                                            <span class="countOfProduct">1</span>
+                                            <button>+</button>
+                                        </div>
+                                        <i class="fas fa-garbage-bin"></i>
+                                    </div>
+                                </li> -->
+                        </ul>
+                        <div class="cart-footer">
+                            <button class="btn checkout hidden">Check out</button>
+                            <p>Total <span>₹</span><span class="Total" id="sum-prices">0</span> </p>
+                        </div>
+                    </div>
+                </div>
                 <a href="" class="cart-icon-1">
                     <i class="fa-regular fa-heart icon-2" id="nav-icon"></i>
                     <span class="cart-icon-2">2</span>
@@ -237,15 +262,15 @@
         <section class="product-cards-section">
             <section class="swiper arrivals-slider">
                 <div class="swiper-wrapper">
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_1-product (2).png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="1">Add To Cart</p>
                         </div>
                         <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
                             -$20
@@ -254,16 +279,16 @@
                             <i class="fa-regular fa-heart"></i>
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product2-part2.png" alt="">
 
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="2">Add To Cart</p>
                         </div>
                         <div
                             class="arrival-cards-2-section2 arrival-cards-3-section2 arrival-cards-4-section2 arrival-cards-5-section2">
@@ -274,29 +299,29 @@
                         </div>
 
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_3-removebg-preview (1).png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="3">Add To Cart</p>
                         </div>
                         <div class="arrival-cards-icon-1">
                             <i class="fa-regular fa-heart"></i>
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_4-removebg-preview.png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="4">Add To Cart</p>
                         </div>
                         <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
                             -$20
@@ -305,30 +330,30 @@
                             <i class="fa-regular fa-heart"></i>
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_1-product (2).png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="5">Add To Cart</p>
                         </div>
                         <div class="arrival-cards-icon-1">
                             <i class="fa-regular fa-heart"></i>
                         </div>
 
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product2-part2.png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="6">Add To Cart</p>
                         </div>
                         <div class="arrival-cards-icon-1">
                             <i class="fa-regular fa-heart"></i>
@@ -336,57 +361,57 @@
 
 
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_3-removebg-preview (1).png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="7">Add To Cart</p>
                         </div>
                         <div class="arrival-cards-icon-1">
                             <i class="fa-regular fa-heart"></i>
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_4-removebg-preview.png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="8">Add To Cart</p>
                         </div>
                         <div class="arrival-cards-icon-1">
                             <i class="fa-regular fa-heart"></i>
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_3-removebg-preview (1).png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="9">Add To Cart</p>
                         </div>
                         <div class="arrival-cards-icon-1">
                             <i class="fa-regular fa-heart"></i>
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_4-removebg-preview.png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="10">Add To Cart</p>
                         </div>
                         <div class="arrival-cards-icon-1">
                             <i class="fa-regular fa-heart"></i>
@@ -399,122 +424,122 @@
         <section class="product-cards-section-1">
             <section class="swiper arrivals-slider">
                 <div class="swiper-wrapper">
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_1-product (2).png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="11">Add To Cart</p>
                         </div>
                         <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
                             -$20
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product2-part2.png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="12">Add To Cart</p>
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_3-removebg-preview (1).png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="13">Add To Cart</p>
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_4-removebg-preview.png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="14">Add To Cart</p>
                         </div>
                         <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
                             -$20
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_1-product (2).png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="15">Add To Cart</p>
                         </div>
 
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product2-part2.png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="16">Add To Cart</p>
                         </div>
 
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_3-removebg-preview (1).png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="17">Add To Cart</p>
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_4-removebg-preview.png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="18">Add To Cart</p>
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_3-removebg-preview (1).png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="19">Add To Cart</p>
                         </div>
                     </section>
-                    <section class="swiper-slide arrival-cards">
+                    <section class="swiper-slide arrival-cards product-under">
                         <div class="arrival-image">
                             <img src="./images/product_4-removebg-preview.png" alt="">
                         </div>
                         <div class="arrivals-info">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="20">Add To Cart</p>
                         </div>
                     </section>
 
@@ -562,14 +587,14 @@
         <section class="best-sellers">
             <section class="swiper seller-slider">
                 <div class="swiper-wrapper">
-                    <section class="swiper-slide seller-cards">
+                    <section class="swiper-slide seller-cards product-under">
                         <div class="seller-image">
                             <img src="./images/product_3-removebg-preview (1).png" alt="">
                         </div>
                         <div class="seller-content">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
                         </div>
                         <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
                             -$20
@@ -577,16 +602,16 @@
                         <div class="seller-cards-icon">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <a href="#" class="product-cart">Add To Cart</a>
+                        <p class="product-cart AddToCart" data-product-id="21">Add To Cart</p>
                     </section>
-                    <section class="swiper-slide seller-cards">
+                    <section class="swiper-slide seller-cards product-under">
                         <div class="seller-image">
                             <img src="./images/product_4-removebg-preview.png" alt="">
                         </div>
                         <div class="seller-content">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
                         </div>
                         <div
                             class="arrival-cards-2-section2 arrival-cards-3-section2 arrival-cards-4-section2 arrival-cards-5-section2">
@@ -595,32 +620,32 @@
                         <div class="seller-cards-icon-1">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <a href="#" class="product-cart">Add To Cart</a>
+                        <p class="product-cart AddToCart" data-product-id="22">Add To Cart</p>
                     </section>
-                    <section class="swiper-slide seller-cards">
+                    <section class="swiper-slide seller-cards product-under">
                         <div class="seller-image">
                             <img src="./images/product_9-removebg-preview.png" alt="">
                         </div>
                         <div class="seller-content">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
 
                         </div>
 
                         <div class="seller-cards-icon-1">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <a href="#" class="product-cart">Add To Cart</a>
+                        <p class="product-cart AddToCart" data-product-id="23">Add To Cart</p>
                     </section>
-                    <section class="swiper-slide seller-cards">
+                    <section class="swiper-slide seller-cards product-under">
                         <div class="seller-image">
                             <img src="./images/product_5-removebg-preview (1).png" alt="">
                         </div>
                         <div class="seller-content">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
                         </div>
                         <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
                             -$20
@@ -628,75 +653,75 @@
                         <div class="seller-cards-icon">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <a href="#" class="product-cart">Add To Cart</a>
+                        <p class="product-cart AddToCart" data-product-id="24">Add To Cart</p>
                     </section>
-                    <section class="swiper-slide seller-cards">
+                    <section class="swiper-slide seller-cards product-under">
                         <div class="seller-image">
                             <img src="./images/product_6-removebg-preview.png" alt="">
                         </div>
                         <div class="seller-content">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
                         </div>
                         <div class="seller-cards-icon-1">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <a href="#" class="product-cart">Add To Cart</a>
+                        <p class="product-cart AddToCart" data-product-id="25">Add To Cart</p>
                     </section>
-                    <section class="swiper-slide seller-cards">
+                    <section class="swiper-slide seller-cards product-under">
                         <div class="seller-image">
                             <img src="./images/product_10-removebg-preview.png" alt="">
                         </div>
                         <div class="seller-content">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
                         </div>
-                        <a href="#" class="product-cart">Add To Cart</a>
+                        <p class="product-cart AddToCart" data-product-id="26">Add To Cart</p>
                     </section>
-                    <section class="swiper-slide seller-cards">
+                    <section class="swiper-slide seller-cards product-under">
                         <div class="seller-image">
                             <img src="./images/product_3-removebg-preview (1).png" alt="">
                         </div>
                         <div class="seller-content">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
                         </div>
-                        <a href="#" class="product-cart">Add To Cart</a>
+                        <p class="product-cart AddToCart" data-product-id="27">Add To Cart</p>
                     </section>
-                    <section class="swiper-slide seller-cards">
+                    <section class="swiper-slide seller-cards product-under">
                         <div class="seller-image">
                             <img src="./images/product_3-removebg-preview (1).png" alt="">
                         </div>
                         <div class="seller-content">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
                         </div>
-                        <a href="#" class="product-cart">Add To Cart</a>
+                        <p class="product-cart AddToCart" data-product-id="28">Add To Cart</p>
                     </section>
-                    <section class="swiper-slide seller-cards">
+                    <section class="swiper-slide seller-cards product-under">
                         <div class="seller-image">
                             <img src="./images/product_3-removebg-preview (1).png" alt="">
                         </div>
                         <div class="seller-content">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="29">Add To Cart</p>
                         </div>
                     </section>
-                    <section class="swiper-slide seller-cards">
+                    <section class="swiper-slide seller-cards product-under">
                         <div class="seller-image">
                             <img src="./images/product_3-removebg-preview (1).png" alt="">
                         </div>
                         <div class="seller-content">
-                            <h6>Men's Solid Slim Fit Casual</h6>
-                            <h6>Shirt</h6>
-                            <span>$520.00</span>
-                            <a href="#" class="product-cart">Add To Cart</a>
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="30">Add To Cart</p>
                         </div>
                     </section>
 
@@ -730,6 +755,7 @@
     <script src="./js/project90.js"></script>
     <script src="./js/firebase.js"></script>
     <script src="./js/welcome.js"></script>
+    <script src="shopping-cart.js"></script>
 </body>
 
 </html>
