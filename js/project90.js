@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-// updatewishcount();
-=======
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";  
 import { getFirestore, getDoc, setDoc, query, serverTimestamp, collection, onSnapshot, doc, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
@@ -166,7 +163,6 @@ function createEventLinstner(){
 
 
 
->>>>>>> Stashed changes
 
 let icon;
 let searchbox;
@@ -345,57 +341,4 @@ var swiper = new Swiper(".seller-slider", {
   },
 
 
-});
-
-let heart1 = document.querySelectorAll(".heart1");
-let heart2 = document.querySelectorAll(".heart2");
-let wishcount = document.getElementById("wishlist-count");
-
-// console.log(heart1);
-let productsInWishList = JSON.parse(localStorage.getItem("WishList"));
-let count = 0;
-if(!productsInWishList) {
-  productsInWishList = [];
-}
-
-function updatewishcount(){
-  if (!productsInWishList[productsInWishList.length - 1]){
-    wishcount.innerHTML = "0";
-    return;
-  }
-    wishcount.innerHTML = productsInWishList[productsInWishList.length - 1];
-}
-updatewishcount();
-
-heart1.forEach((heart) => {
-  localStorage.setItem("WishList", JSON.stringify(productsInWishList))
-  heart.addEventListener('click', () => {
-    count += 1;
-    // localStorage.clear();
-    productsInWishList.push(count);
-    updatewishcount();
-    // console.log(productsInWishList[productsInWishList.length - 1]);
-    // countproduct();
-    // console.log("yes");
-    heart.style.display = "none";
-    heart.parentNode.childNodes[3].style.display = "block";
-    // heart2.style.display = "block"; 
-  })
-});
-
-heart2.forEach((heart) => {
-  localStorage.setItem("WishList", JSON.stringify(productsInWishList));
-  heart.addEventListener("click", () => {
-    // console.log("yes");
-    count -= 1;
-    // localStorage.clear();
-    productsInWishList.push(count);
-    updatewishcount();
-    // console.log(productsInWishList[productsInWishList.length - 1]);
-    // countproduct();
-    // console.log(productsInWishList.length);
-    heart.style.display = "none";
-    heart.parentNode.childNodes[1].style.display = "block";
-    // heart2.style.display = "block";
-  });
 });
