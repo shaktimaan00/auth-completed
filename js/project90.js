@@ -1,4 +1,172 @@
+<<<<<<< Updated upstream
 // updatewishcount();
+=======
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";  
+import { getFirestore, getDoc, setDoc, query, serverTimestamp, collection, onSnapshot, doc, addDoc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+
+
+//add your credentials from firebase project
+const firebaseConfig = {
+  apiKey: "AIzaSyBC6D0aZol-1AT5hfy59chfBEvfWzF03NY",
+  authDomain: "do-test-1a7d0.firebaseapp.com",
+  projectId: "do-test-1a7d0",
+  storageBucket: "do-test-1a7d0.appspot.com",
+  messagingSenderId: "285727750796",
+  appId: "1:285727750796:web:94ed0bb10f9c0e755299a9"
+};
+
+initializeApp(firebaseConfig);
+const db = getFirestore();
+
+const colRef1 = collection(db , 'Product-bd');
+
+// getDocs(colRef)
+//   .then((snapshot)=>{
+//     console.log(snapshot.docs);
+//   })
+
+//snapshot of the whole "main" document.
+onSnapshot(colRef1, (snapshot)=>{
+  let cartItems=[];
+  snapshot.docs.forEach((doc)=>{
+    cartItems.push({ 
+      image: doc.data().image1,
+      title: doc.data().title,
+      price: doc.data().price,
+      p_id: doc.id })
+  })
+  let section1=[];
+  // section1 = cartItems.splice(0, 7);
+  // console.log(section1);
+  console.log(cartItems);
+  generatecartItems(cartItems);
+})
+
+
+
+// import { collection, onSnapshot, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+// import { db } from "../js/firebase";
+
+// const colRef = collection(db, 'main');
+// console.log(db);
+// onSnapshot(colRef, (snapshot)=>{
+//   let cartItems = [];
+//   snapshot.docs.forEach((doc)=>{
+//     console.log( ...doc.data());
+//   })
+  
+//   // generateCartItems(cartItems);
+// }
+
+async function addingtoDescription(itemId){
+  console.log(itemId);
+  let cartItem = doc(db, 'Product-bd', itemId);
+  // if(cartItem.size===0){
+  //   cartItem = doc(db, 'main/5631yS3CtRRmD0dTLfw9/section2', itemId);
+  // }
+  // console.log(cartItem);
+  const docu = await getDoc(cartItem);
+  if (docu.exists()) {
+    await addDoc(collection(db, 'Descrip-db'), {
+      ...docu.data(),
+      p_id: itemId,
+      createdAt: serverTimestamp()
+    });
+    console.log(docu.data());
+  } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+  }
+      //going to des. page
+      location.href = "http://127.0.0.1:5500/description.html";
+   
+}
+
+function generatecartItems(cartItems){
+  let itemsHTML="";
+  let section_one="";
+  
+  cartItems.forEach(items=>{
+    itemsHTML+=`
+    <section class="swiper-slide arrival-cards clicktoCart" data-id="${items.p_id}">
+      <div class="arrival-image">
+          <img src="${items.image}" alt="">
+      </div>
+      <div class="arrivals-info">
+          <h6>${items.title}</h6>
+          <span>₹${items.price}</span>
+          <a href="#" class="product-cart" data-id="${items.p_id}">Add To Cart</a>
+      </div>
+      <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
+          -$20
+      </div>
+      <div class="arrival-cards-icon">
+        <i class="fa-regular fa-heart"></i>
+      </div>
+    </section>
+    `
+  });
+
+  // section1.forEach(items=>{
+  //   section_one+=`
+  //   <section class="swiper-slide arrival-cards clicktoCart" data-id="${items.id}">
+  //     <div class="arrival-image">
+  //         <img src="${items.image}" alt="">
+  //     </div>
+  //     <div class="arrivals-info">
+  //         <h6>${items.title}</h6>
+  //         <span>$${items.price}</span>
+  //         <a href="#" class="product-cart" id="${items.id}">Add To Cart</a>
+  //     </div>
+  //     <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
+  //         -$20
+  //     </div>
+  //     <div class="arrival-cards-icon">
+  //       <i class="fa-regular fa-heart"></i>
+  //     </div>
+  //   </section>
+  //   `
+  // });
+
+  document.querySelector(".getingdata").innerHTML=itemsHTML;
+  // document.querySelector(".getdata").innerHTML=section_one;
+  createEventLinstner();
+}
+
+
+function createEventLinstner(){
+  let clicktoDescription = document.querySelectorAll(".clicktoCart");
+  // let clicktoCart = document.querySelectorAll(".product-cart");
+  // clicktoCart.forEach((button)=>{
+  //   button.addEventListener("click", function(){
+  //     addtoCart(button.dataset.id);
+  //     console.log("ok");
+  //   })
+  // })
+
+  clicktoDescription.forEach((button)=>{
+    button.addEventListener("click", async function(){
+      addingtoDescription(button.dataset.id);
+      console.log(button.dataset.id);
+    })
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 
 let icon;
 let searchbox;
