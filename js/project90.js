@@ -16,7 +16,7 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const db = getFirestore();
 
-const colRef1 = collection(db , 'Home-db');
+const colRef1 = collection(db , 'Product-bd');
 
 // getDocs(colRef)
 //   .then((snapshot)=>{
@@ -27,13 +27,17 @@ const colRef1 = collection(db , 'Home-db');
 onSnapshot(colRef1, (snapshot)=>{
   let cartItems=[];
   snapshot.docs.forEach((doc)=>{
-    cartItems.push({ ...doc.data(), id: doc.id })
+    cartItems.push({ 
+      image: doc.data().image1,
+      title: doc.data().title,
+      price: doc.data().price,
+      p_id: doc.id })
   })
   let section1=[];
-  section1 = cartItems.splice(0, 7);
+  // section1 = cartItems.splice(0, 7);
   // console.log(section1);
   console.log(cartItems);
-  generatecartItems(cartItems, section1);
+  generatecartItems(cartItems);
 })
 
 
@@ -53,7 +57,8 @@ onSnapshot(colRef1, (snapshot)=>{
 // }
 
 async function addingtoDescription(itemId){
-  let cartItem = doc(db, 'Home-db', itemId);
+  console.log(itemId);
+  let cartItem = doc(db, 'Product-bd', itemId);
   // if(cartItem.size===0){
   //   cartItem = doc(db, 'main/5631yS3CtRRmD0dTLfw9/section2', itemId);
   // }
@@ -75,20 +80,20 @@ async function addingtoDescription(itemId){
    
 }
 
-function generatecartItems(cartItems, section1){
+function generatecartItems(cartItems){
   let itemsHTML="";
   let section_one="";
   
   cartItems.forEach(items=>{
     itemsHTML+=`
-    <section class="swiper-slide arrival-cards clicktoCart" data-id="${items.id}">
+    <section class="swiper-slide arrival-cards clicktoCart" data-id="${items.p_id}">
       <div class="arrival-image">
           <img src="${items.image}" alt="">
       </div>
       <div class="arrivals-info">
           <h6>${items.title}</h6>
-          <span>$${items.price}</span>
-          <a href="#" class="product-cart" id="${items.id}">Add To Cart</a>
+          <span>₹${items.price}</span>
+          <a href="#" class="product-cart" data-id="${items.p_id}">Add To Cart</a>
       </div>
       <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
           -$20
@@ -100,29 +105,29 @@ function generatecartItems(cartItems, section1){
     `
   });
 
-  section1.forEach(items=>{
-    section_one+=`
-    <section class="swiper-slide arrival-cards clicktoCart" data-id="${items.id}">
-      <div class="arrival-image">
-          <img src="${items.image}" alt="">
-      </div>
-      <div class="arrivals-info">
-          <h6>${items.title}</h6>
-          <span>$${items.price}</span>
-          <a href="#" class="product-cart" id="${items.id}">Add To Cart</a>
-      </div>
-      <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
-          -$20
-      </div>
-      <div class="arrival-cards-icon">
-        <i class="fa-regular fa-heart"></i>
-      </div>
-    </section>
-    `
-  });
+  // section1.forEach(items=>{
+  //   section_one+=`
+  //   <section class="swiper-slide arrival-cards clicktoCart" data-id="${items.id}">
+  //     <div class="arrival-image">
+  //         <img src="${items.image}" alt="">
+  //     </div>
+  //     <div class="arrivals-info">
+  //         <h6>${items.title}</h6>
+  //         <span>$${items.price}</span>
+  //         <a href="#" class="product-cart" id="${items.id}">Add To Cart</a>
+  //     </div>
+  //     <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
+  //         -$20
+  //     </div>
+  //     <div class="arrival-cards-icon">
+  //       <i class="fa-regular fa-heart"></i>
+  //     </div>
+  //   </section>
+  //   `
+  // });
 
   document.querySelector(".getingdata").innerHTML=itemsHTML;
-  document.querySelector(".getdata").innerHTML=section_one;
+  // document.querySelector(".getdata").innerHTML=section_one;
   createEventLinstner();
 }
 

@@ -147,6 +147,30 @@ header {
     left: 0; */
 }
 
+.heart1{
+    display: block;
+    font-size: 18px;
+}
+
+.heart2{
+    display: none;
+    width: 18px;
+    transform: translateY(0px);
+    animation: popup 0.5s infinite;
+}
+
+@keyframes popup {
+    0%, 50%{
+        transform: scale(1.1);
+    }
+    
+}
+
+.heart:hover{
+    color: red;
+    background-color: red;
+}
+
 .cart-footer p, .cart-footer span{
     font-size: 15px;
 }

@@ -104,26 +104,26 @@ function getdataLocal(oneitem){
     oneitem.forEach(item=>{
         itemsHTML+=`
             <div class="history1">
-                <p>Mens > Clothing > <span>Sweatshirts & Hoodies</span></p>
+                <p>${item.catagory}> <span>${item.brand}</span></p>
             </div>
             <div class="left">
                 
                 <div class="small-image-box">
                     <!-- <div class="small-image-box"> -->
-                        <div class="small-image"><img src="./description/description_assets/hoodie.remove.bg-removebg-preview.png" alt=""></div>
-                        <div class="small-image"><img src="./description/description_assets/hoodie.remove.bg-removebg-preview.png" alt=""></div>
-                        <div class="small-image"><img src="./description/description_assets/hoodie.remove.bg-removebg-preview.png" alt=""></div>
+                        <div class="small-image"><img src="${item.image2}" alt=""></div>
+                        <div class="small-image"><img src="${item.image3}" alt=""></div>
+                        <div class="small-image"><img src="${item.image4}" alt=""></div>
                         <div class="small-image"><img src="./description/description_assets/hoodie.remove.bg-removebg-preview.png" alt=""></div>
                         <!-- <div class="small-image"></div> -->
                     <!-- </div> -->
                 </div>
                 <div class="big-image">
-                    <img src="${item.image}" alt="">
+                    <img src="${item.image1}" alt="">
                 </div>
             </div>
             <div class="right">
                 <div class="history2">
-                    <p>Mens > Clothing > Sweatshirts & Hoodies</p>
+                    <p>${item.catagory}</p>
                 </div>
                 <div class="product-name">
                     <p>${item.title}</p>
@@ -230,6 +230,27 @@ function createEventLinstner(){
             e.children[0].style.display = "block";
         });
     });
+
+    let plus = document.querySelector(".plus");
+    let minus = document.querySelector(".minus");
+    let q_value = document.querySelector(".q-value");
+
+    plus.addEventListener('click', () => {
+        let x = parseInt(q_value.innerHTML);
+        x += 1;
+        let y = x.toString();
+        q_value.innerHTML = y;
+    });
+
+    minus.addEventListener("click", () => {
+        let x = parseInt(q_value.innerHTML);
+        if(x > 1){
+            x -= 1;
+            let y = x.toString();
+            q_value.innerHTML = y;
+        }
+    });
+
     //Cart me add karne ke liye
     addcart.addEventListener("click", ()=>{
         addtoCart(addcart.id);
