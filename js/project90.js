@@ -76,7 +76,7 @@ async function addingtoDescription(itemId){
     console.log("No such document!");
   }
       //going to des. page
-      location.href = "http://127.0.0.1:5500/description.html";
+      location.href = "../description.html";
    
 }
 
