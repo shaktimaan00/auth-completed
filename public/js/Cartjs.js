@@ -13,24 +13,8 @@ onSnapshot(colRef, (snapshot)=>{
     })
     console.log(cartItems);
     generateCartItems(cartItems);
+    totalCost(cartItems);
 })
-// fetch("store.json")
-// .then((response) => response.json())
-// .then((data) => {
-//     // console.log(data);
-    
-//     localStorage.setItem('jsonfile', JSON.stringify(data));
-//     generateCartItems(data.items);
-//   });
-// //storing into the local storeage to use it later
-// const jsondata = JSON.parse(localStorage.getItem('jsonfile'));
-// console.log(jsondata);
-// // fetch("store.json")
-// //     .then(response => response.json())
-// //     .then(json => {
-// //         generateCartItems(json.items);
-        
-// //     });
 
 
 function decreaseCount(itemId){
@@ -65,6 +49,16 @@ function deleteItem(itemId){
     deleteDoc(cartItem);
 }
 
+function totalCost(cartItem){
+    let totalcost=0;
+    cartItem.forEach(item=>{
+        totalcost += (item.quantity * item.price);
+    })
+    let costHtml = document.querySelector(".totalcost");
+    // console.log(costHtml);
+    costHtml.innerHTML = `₹${totalcost}`;
+}
+
 function generateCartItems(cartItems) {
     let itemsHTML = "";
     cartItems.forEach(item => {
@@ -80,7 +74,7 @@ function generateCartItems(cartItems) {
             <div class="columndiv">
                 <div class="pro_details">
                     <p class="heading">${item.title}</p>
-                    <p class="maker">by <span>${item.make}</span> | Electronics</p>
+                    <p class="maker">by <span>${item.brand}</span> | Electronics</p>
                 </div>
                 <p class="delivery_details">
                     Get it by <span class="col">Monday, June 27</span>

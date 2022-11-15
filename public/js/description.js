@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";  
-import { getFirestore, getDoc,query, limit, orderBy, setDoc, collection, onSnapshot, doc, addDoc, serverTimestamp, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+import { getFirestore, getDoc, getDocs, where, query, limit, orderBy, setDoc, collection, onSnapshot, doc, addDoc, serverTimestamp, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBC6D0aZol-1AT5hfy59chfBEvfWzF03NY",
@@ -33,40 +33,34 @@ onSnapshot(q, (snapshot)=>{
 
 //
 async function addtoCart(itemId){
-  let cartItem = doc(db, 'Descrip-db', itemId);
-
-  const docs = await getDoc(cartItem);
-  if(docs.exists()){
-    await setDoc(doc(db, 'Cart-db', itemId), {
-        ...docs.data()
+    let cartItem = doc(db, 'Product-bd', itemId);
+    const docsment = await getDoc(cartItem);
+    const docRef = collection(db, "Cart-db");
+    const q = query(docRef, where("p_id", "==", itemId));
+    const docSnap = await getDocs(q);
+    
+    var count=0;
+    docSnap.forEach(item=>{
+        count++;
     })
-    console.log(docs.data());
-  }
-//   getDoc(cartIt/em)
-//     .then(async function(docu){
-//       // seting data into new document with at the time it is inserting.
-//       await setDoc(collection(db, 'Cart-db'), {
-//         ...docu.data(),
-//         createdAt : serverTimestamp()
-//       });
-//       console.log(docu.data());
-//       // await addDoc(doc(db, 'Itemfordescrip', itemId), {
-//       //   ...docu.data(),
-//       //   createdAt : serverTimestamp()
-//       // })
-//       // let obj = JSON.stringify(doc.data());
-//       // console.log(obj);
-//       // localStorage.setItem("myobj", obj);
-      
-//       // let desreilobj = JSON.parse(localStorage.getItem("myobj"));
-//       // console.log(desreilobj);
-
-//       //going to des. page
-      location.href = "http://127.0.0.1:5501/Cart.html";
-//     })
-
+    if(count==0){
+        console.log("oes");
+        await addDoc(collection(db, 'Cart-db'), {
+            image: docsment.data().image1,
+            quantity: docsment.data().quantity,
+            price: docsment.data().price,
+            brand: docsment.data().brand,
+            title: docsment.data().title,
+            p_id: itemId
+        })
+    }
+    else{
+        console.log("oono");
+    }
 }
+
 //
+// decrease or increase functions.
 // function decreaseCount(itemId){
 //     let cartItem = doc(db, 'Descrip-db', itemId);
 //     getDoc(cartItem)
@@ -97,10 +91,7 @@ async function addtoCart(itemId){
 
 //main that gets data to HTML
 function getdataLocal(oneitem){
-    let itemsHTML=""; 
-    // let mineobject = JSON.parse(localStorage.getItem("myobj"));
-    // console.log(mineobject);
-
+    let itemsHTML="";
     oneitem.forEach(item=>{
         itemsHTML+=`
             <div class="history1">
@@ -110,10 +101,10 @@ function getdataLocal(oneitem){
                 
                 <div class="small-image-box">
                     <!-- <div class="small-image-box"> -->
+                        <div class="small-image"><img src="${item.image1}" alt=""></div>
                         <div class="small-image"><img src="${item.image2}" alt=""></div>
                         <div class="small-image"><img src="${item.image3}" alt=""></div>
                         <div class="small-image"><img src="${item.image4}" alt=""></div>
-                        <div class="small-image"><img src="./description/description_assets/hoodie.remove.bg-removebg-preview.png" alt=""></div>
                         <!-- <div class="small-image"></div> -->
                     <!-- </div> -->
                 </div>
@@ -172,7 +163,7 @@ function getdataLocal(oneitem){
                     <p><i class="fa-solid fa-tags"></i> Enjoy upto ₹300 off with Promo code: <span>#478294</span> Until 9/10/22</p>
                 </div>
                 <div class="btns">
-                    <button class="btn btn-primary addcart" id="${item.id}">
+                    <button class="btn btn-primary addcart" data-id="${item.p_id}">
                         <p>Add To Cart</p>
                         <i class="fas fa-bag-shopping"></i>
                     </button>
@@ -182,8 +173,6 @@ function getdataLocal(oneitem){
                     </button>
                 </div>
             </div>
-        
-        
         `
     });
     document.querySelector(".product").innerHTML = itemsHTML;
@@ -253,8 +242,9 @@ function createEventLinstner(){
 
     //Cart me add karne ke liye
     addcart.addEventListener("click", ()=>{
-        addtoCart(addcart.id);
-        location.href = "http://127.0.0.1:5500/Cart.html"
+        // console.log(addcart.dataset.id);
+        addtoCart(addcart.dataset.id);
+        // location.href = "http://127.0.0.1:5500/Cart.html"
     })
 
     // //quantity decrease 
@@ -272,59 +262,59 @@ function createEventLinstner(){
 
 
 
-let plus = document.querySelector(".plus");
-let minus = document.querySelector(".minus");
-let q_value = document.querySelector(".q-value");
-let select_size = document.querySelectorAll(".select-size");
+// let plus = document.querySelector(".plus");
+// let minus = document.querySelector(".minus");
+// let q_value = document.querySelector(".q-value");
+// let select_size = document.querySelectorAll(".select-size");
 
-plus.addEventListener('click', () => {
-    let x = parseInt(q_value.innerHTML);
-    x += 1;
-    let y = x.toString();
-    q_value.innerHTML = y;
-});
+// plus.addEventListener('click', () => {
+//     let x = parseInt(q_value.innerHTML);
+//     x += 1;
+//     let y = x.toString();
+//     q_value.innerHTML = y;
+// });
 
-minus.addEventListener("click", () => {
-    let x = parseInt(q_value.innerHTML);
-    if(x > 1){
-        x -= 1;
-        let y = x.toString();
-        q_value.innerHTML = y;
-    }
-});
+// minus.addEventListener("click", () => {
+//     let x = parseInt(q_value.innerHTML);
+//     if(x > 1){
+//         x -= 1;
+//         let y = x.toString();
+//         q_value.innerHTML = y;
+//     }
+// });
 
-let remove_size_active_effect = () => {
-    Array.from(select_size).forEach((e) => {
-        // console.log(e.classList)
-        e.classList.remove("active");
-    });
-}
+// let remove_size_active_effect = () => {
+//     Array.from(select_size).forEach((e) => {
+//         // console.log(e.classList)
+//         e.classList.remove("active");
+//     });
+// }
 
-// console.log(select_size);
-Array.from(select_size).forEach((e) => {
-    e.addEventListener('click', () => {
-        remove_size_active_effect();
-        e.classList.toggle("active");
-    });
-});
+// // console.log(select_size);
+// Array.from(select_size).forEach((e) => {
+//     e.addEventListener('click', () => {
+//         remove_size_active_effect();
+//         e.classList.toggle("active");
+//     });
+// });
 
-let select_color = document.querySelectorAll(".select-color");
-let select_tick = document.querySelectorAll(".tick");
+// let select_color = document.querySelectorAll(".select-color");
+// let select_tick = document.querySelectorAll(".tick");
 
-// console.log(select_color.chil);
-let remove_tick = () => {
-    Array.from(select_tick).forEach((e) => {
-        e.style.display = "none";
-    });
-}
+// // console.log(select_color.chil);
+// let remove_tick = () => {
+//     Array.from(select_tick).forEach((e) => {
+//         e.style.display = "none";
+//     });
+// }
 
 
-Array.from(select_color).forEach((e) => {
-    e.addEventListener('click', () => {
-        remove_tick();
-        e.children[0].style.display = "block";
-    });
-});
+// Array.from(select_color).forEach((e) => {
+//     e.addEventListener('click', () => {
+//         remove_tick();
+//         e.children[0].style.display = "block";
+//     });
+// });
 
 // let myDatato = JSON.parse(localStorage.getItem('myobj'));
 

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="/public/css/project90.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <header>
+        <a href="" id=title>COOL <span>SHOP</span></a>
+        <nav class="nav">
+
+
+
+            <div class="items">
+                <a href="./pages/garments/index.html">Garments</a>
+                <a href="./pages/garments/index.html">Electronics</a>
+                <a href="./second_hand_main_page/index.html">Furniture</a>
+                <a href="">Offers
+                </a>
+                <a href="">Service</a>
+            </div>
+            <div class="icons">
+                <i class="fa-solid fa-user icon-2 icon-3">
+                    <div class="icon-3-content">
+                        <div class="icon-3-box">
+                            <a href="" class="icon-3-logo">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a href="" class="icon-3-title" id="user"></a>
+
+                        </div>
+                        <div class="icon-3-item1">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <a href=""> Edit Profile</a>
+                        </div>
+                        <div class="icon-3-item2">
+                            <i class="fa-solid fa-gear"></i>
+                            <a href="">Settings</a>
+                       
+                        </div>
+                        <div class="icon-3-item3">
+                            <i class="fa-regular fa-user"></i>
+                            <a href="">Account</a>
+                       
+                        </div>
+                        <div class="icon-3-item4">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <p class="loginOrSignUp" id="LoginOrSignUp">
+                                <a class="signup" href="./Sign Up/signUp.html">Sign Up</a>
+                                <span style="color: gray"> / </span>
+                                <a class="login" href="./login-page/Login.html">Login</a>
+                            </p>
+                            <p><button" class="logout" id="logOut" onclick="logout()">Logout</button></p>
+                            
+                        </div>
+                    </div>
+                </i>
+                <div class="bag-icon">
+                    <i class="fa-solid fa-bag-shopping icon-2 bag-icon"></i>
+                    <span class="cart-icon-2" id="item-count">0</span>
+                    <div class="side-cart">
+                        <ul id="buyItems">
+                            <h4 class="empty">Your shopping cart is empty</h4>
+                            <!-- <li class="buyItem">
+                                    <img src="Images/producs-images/Mobiles/galaxynote10.png">
+                                    <div>
+                                        <h5>Products Name</h5>
+                                        <h6>$199</h6>
+                                        <div>
+                                            <button>-</button>
+                                            <span class="countOfProduct">1</span>
+                                            <button>+</button>
+                                        </div>
+                                        <i class="fas fa-garbage-bin"></i>
+                                    </div>
+                                </li> -->
+                        </ul>
+                        <div class="cart-footer">
+                            <button class="btn checkout hidden">Check out</button>
+                            <p>Total <span>₹</span><span class="Total" id="sum-prices">0</span> </p>
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="cart-icon-1">
+                    <i class="fa-regular fa-heart icon-2" id="nav-icon"></i>
+                    <span class="cart-icon-2" id="wishlist-count">0</span>
+                </a>
+
+            </div>
+            <a href="" id=title2>Cool Shop</a>
+
+
+
+        </nav>
+        <div class="sidenav-icons">
+            <i class="fa-solid fa-user cart"></i>
+            <i class="fa-regular fa-heart cart"></i>
+            <i class="fa-solid fa-bag-shopping cart" id="nav-icon"></i>
+            <div class="hamburger">
+                <div class="line-1"></div>
+                <div class="line-2"></div>
+                <div class="line-3"></div>
+            </div>
+        </div>
+        <div class="sidenav">
+            <div class="search2">
+                <input type="none" class="input-2">
+                <i class="fa-solid fa-magnifying-glass search-icon2"></i>
+            </div>
+            <div class="sidenav-items">
+                <div class="sidenav-item1">
+                    <div class="sidenav-header">Garments
+                        <i class="fa-solid fa-angle-down dropdown-icon"></i>
+                    </div>
+                    <div class="content">
+                        <p>Male </p>
+                        <p>Female</p>
+                    </div>
+                </div>
+                <div class="sidenav-item1">
+                    <div class="sidenav-header">Garments
+                        <i class="fa-solid fa-angle-down dropdown-icon"></i>
+                    </div>
+                    <div class="content">
+                        <p>Male </p>
+                        <p>Female</p>
+                        <p>Male </p>
+                        <p>Female</p>
+                    </div>
+                </div>
+                <div class="sidenav-item1">
+                    <div class="sidenav-header">Garments
+                        <i class="fa-solid fa-angle-down dropdown-icon"></i>
+                    </div>
+                    <div class="content">
+                        <p>Male </p>
+                        <p>Female</p>
+                        <p>Male </p>
+                        <p>Female</p>
+                    </div>
+                </div>
+                <div class="sidenav-item1">
+                    <div class="sidenav-header">Garments
+                        <i class="fa-solid fa-angle-down dropdown-icon"></i>
+                    </div>
+                    <div class="content">
+                        <p>Male </p>
+                        <p>Female</p>
+                        <p>Male </p>
+                        <p>Female</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </header>
+    <!---home section starts here-->
+    <section class="home">
+
+        <div class="swiper home-slider">
+
+            <div class="swiper-wrapper">
+                <section class="swiper-slide slide">
+                    <div class="slider-image">
+                        <img src="./images/banner1.jpg" alt="">
+                    </div>
+                </section>
+
+                <section class="swiper-slide slide">
+                    <div class="slider-image">
+                        <img src="./images/banner2.jpg" alt="">
+                    </div>
+                </section>
+
+
+                <section class="swiper-slide slide">
+                    <div class="slider-image">
+                        <img src="./images/banner3.jpg" alt="">
+                    </div>
+                </section>
+
+
+            </div>
+            <div class="swiper-pagination"></div>
+
+        </div>
+
+    </section>
+    <section class="home2">
+        <section class="swiper home-slider2">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide2">
+                    <div class="slider-image2">
+                        <img src="./images/home-img-1.jpg" alt="">
+                    </div>
+                    <div class="home2-content">
+                        <span>Upto 50% OFF</span>
+                        <h3>Mobile Phones</h3>
+                        <a href="" class="home2-btn">Shop Now</a>
+                    </div>
+                </div>
+                <div class="swiper-slide slide2">
+                    <div class="slider-image2">
+                        <img src="./images/home-img-2.jpg" alt="">
+                    </div>
+                    <div class="home2-content">
+                        <span>Upto 50% OFF</span>
+                        <h3>Watch</h3>
+                        <a href="" class="home2-btn">Shop Now</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide2">
+                    <div class="slider-image2">
+                        <img src="./images/home-img-3.jpg" alt="">
+                    </div>
+                    <div class="home2-content">
+                        <span>Upto 50% OFF</span>
+                        <h3>Headphones</h3>
+                        <a href="" class="home2-btn">Shop Now</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+    </section>
+    <!---home section ends here-->
+
+    <!----cards-1 section starts here-->
+
+    <section class="border-section">
+        <section class="arrivals-section">
+            <div class="arrivals">
+                <h2 class="arrivals_title">New Arrivals</h2>
+            </div>
+            <div class="arrivals-list">
+                <div class="arrivals-heading active-1">ALL</div>
+                <div class="arrivals-heading">WOMEN'S</div>
+                <div class="arrivals-heading">ACCESSORIES</div>
+                <div class="arrivals-heading">MEN'S</div>
+            </div>
+            <div class="arrivals-list-1">
+                <div class="arrivals-heading active-1">ALL</div>
+
+            </div>
+        </section>
+        <section class="product-cards-section">
+            <section class="swiper arrivals-slider">
+                <div class="swiper-wrapper getingdata">
+                    <!-- getingdata dynamically -->
+                </div>
+            </section>
+        </section>
+        <section class="product-cards-section-1">
+            <section class="swiper arrivals-slider">
+                <div class="swiper-wrapper getdata">
+                    <!-- getingdata dynamically -->
+                </div>
+            </section>
+        </section>
+    </section>
+    <section class="deal-section">
+        <div class="deal">
+            <img src="./images/deal_ofthe_week.png" alt="">
+            <div class="deal-info">
+                <h2 class="deal-title">Deal Of The Week</h2>
+                <div class="deal-info2">
+                    <div class="deal-para">
+                        <h2 class="day">2</h2>
+                        <h3>Day</h3>
+                    </div>
+                    <div class="deal-para">
+                        <h2 class="hour">21</h2>
+                        <h3>Hours</h3>
+                    </div>
+                    <div class="deal-para">
+                        <h2 class="min">57</h2>
+                        <h3>Mins</h3>
+                    </div>
+                    <div class="deal-para">
+                        <h2 class="sec">47</h2>
+                        <h3>Sec</h3>
+                    </div>
+
+
+                </div>
+                <button class="deal-btn">
+                    SHOP NOW
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="border-section2">
+        <div class="seller-section">
+            <div class="seller-title">
+                <h2>Best Sellers</h2>
+            </div>
+        </div>
+        <section class="best-sellers">
+            <section class="swiper seller-slider">
+                <div class="swiper-wrapper">
+                    <section class="swiper-slide seller-cards product-under">
+                        <div class="seller-image">
+                            <img src="./images/product_3-removebg-preview (1).png" alt="">
+                        </div>
+                        <div class="seller-content">
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                        </div>
+                        <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
+                            -$20
+                        </div>
+                        <div class="seller-cards-icon">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        <p class="product-cart AddToCart" data-product-id="21">Add To Cart</p>
+                    </section>
+                    <section class="swiper-slide seller-cards product-under">
+                        <div class="seller-image">
+                            <img src="./images/product_4-removebg-preview.png" alt="">
+                        </div>
+                        <div class="seller-content">
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                        </div>
+                        <div
+                            class="arrival-cards-2-section2 arrival-cards-3-section2 arrival-cards-4-section2 arrival-cards-5-section2">
+                            -$20
+                        </div>
+                        <div class="seller-cards-icon-1">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        <p class="product-cart AddToCart" data-product-id="22">Add To Cart</p>
+                    </section>
+                    <section class="swiper-slide seller-cards product-under">
+                        <div class="seller-image">
+                            <img src="./images/product_9-removebg-preview.png" alt="">
+                        </div>
+                        <div class="seller-content">
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+
+                        </div>
+
+                        <div class="seller-cards-icon-1">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        <p class="product-cart AddToCart" data-product-id="23">Add To Cart</p>
+                    </section>
+                    <section class="swiper-slide seller-cards product-under">
+                        <div class="seller-image">
+                            <img src="./images/product_5-removebg-preview (1).png" alt="">
+                        </div>
+                        <div class="seller-content">
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                        </div>
+                        <div class="arrival-cards-2 arrival-cards-3 arrival-cards-4 arrival-cards-5">
+                            -$20
+                        </div>
+                        <div class="seller-cards-icon">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        <p class="product-cart AddToCart" data-product-id="24">Add To Cart</p>
+                    </section>
+                    <section class="swiper-slide seller-cards product-under">
+                        <div class="seller-image">
+                            <img src="./images/product_6-removebg-preview.png" alt="">
+                        </div>
+                        <div class="seller-content">
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                        </div>
+                        <div class="seller-cards-icon-1">
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                        <p class="product-cart AddToCart" data-product-id="25">Add To Cart</p>
+                    </section>
+                    <section class="swiper-slide seller-cards product-under">
+                        <div class="seller-image">
+                            <img src="./images/product_10-removebg-preview.png" alt="">
+                        </div>
+                        <div class="seller-content">
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                        </div>
+                        <p class="product-cart AddToCart" data-product-id="26">Add To Cart</p>
+                    </section>
+                    <section class="swiper-slide seller-cards product-under">
+                        <div class="seller-image">
+                            <img src="./images/product_3-removebg-preview (1).png" alt="">
+                        </div>
+                        <div class="seller-content">
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                        </div>
+                        <p class="product-cart AddToCart" data-product-id="27">Add To Cart</p>
+                    </section>
+                    <section class="swiper-slide seller-cards product-under">
+                        <div class="seller-image">
+                            <img src="./images/product_3-removebg-preview (1).png" alt="">
+                        </div>
+                        <div class="seller-content">
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                        </div>
+                        <p class="product-cart AddToCart" data-product-id="28">Add To Cart</p>
+                    </section>
+                    <section class="swiper-slide seller-cards product-under">
+                        <div class="seller-image">
+                            <img src="./images/product_3-removebg-preview (1).png" alt="">
+                        </div>
+                        <div class="seller-content">
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="29">Add To Cart</p>
+                        </div>
+                    </section>
+                    <section class="swiper-slide seller-cards product-under">
+                        <div class="seller-image">
+                            <img src="./images/product_3-removebg-preview (1).png" alt="">
+                        </div>
+                        <div class="seller-content">
+                            <h6 class="product-name">Men's Solid Slim Fit Casual Shirt</h6>
+
+                            <span>$ <span class="price-value">520.00</span> </span>
+                            <p class="product-cart AddToCart" data-product-id="30">Add To Cart</p>
+                        </div>
+                    </section>
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </section>
+        </section>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script type="module" src="/public/js/project90.js"></script>
+    <script src="./js/firebase.js"></script>
+    <script src="./js/welcome.js"></script>
+    <script src="./js/shopping-cart.js"></script>
+</body>
+
+</html>
