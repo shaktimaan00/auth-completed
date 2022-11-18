@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    
+    <div class="container">
+        <div class="form">
+            <div class="product-name">
+                <label for="title">Product Name</label>
+                <input type="text" class="name-input input" name="title" id="title" required>
+            </div>
+            
+            <div class="desc">
+                <label for="description">Description</label>
+                <input type="text" class="desc-input input" name="description" id="description" required>
+            </div>
+            
+            <div class="product-price">
+                <label for="price">Price</label>
+                <input type="text" class="price-input input" name="price" id="price" required>
+            </div>
+            
+            <div class="image1">
+                <p class="label-img">Image 1</p>
+                <p id="namebox1" class="namebox"></p>
+                <button class="btn" type="button" id="selbtn1">Select Image</button>
+                <button class="btn" id="upbtn1">Upload Image</button>
+            </div>
+            
+            <div class="image2">
+                <p class="label-img">Image 2</p>
+                <p id="namebox2" class="namebox"></p>
+                <button class="btn" type="button" id="selbtn2">Select Image</button>
+                <button class="btn" id="upbtn2">Upload Image</button>
+            </div>
+            
+            <div class="image3">
+                <p class="label-img">Image 3</p>
+                <p class="namebox" id="namebox3"></p>
+                <button class="btn" type="button" id="selbtn3">Select Image</button>
+                <button class="btn" id="upbtn3">Upload Image</button>
+            </div>
+            
+            <div class="image4">
+                <p class="label-img">Image 4</p>
+                <p id="namebox4" class="namebox"></p>
+                <button class="btn" type="button" id="selbtn4">Select Image</button>
+                <button class="btn" id="upbtn4">Upload Image</button>
+            </div>
+            
+            <div class="submitbtn">
+                <button type="submit" class="btn" id="submit-btn">Submit</button>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+    <script src="js/app.js"></script>
+</body>
+</html>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+    
+    import {
+        getFirestore,
+        collection,
+        onSnapshot,
+        addDoc,
+        deleteDoc,
+        doc,
+        getDoc,
+        setDoc
+    } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js';
+
+    import {
+            getStorage,
+            ref as sRef,
+            uploadBytesResumable,
+            getDownloadURL
+        } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js';
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBo0y52gP6kc1krN3tXDYC-2NJLhFzJvyM",
+        authDomain: "fir-authentication-79f9b.firebaseapp.com",
+        databaseURL: "https://fir-authentication-79f9b-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "fir-authentication-79f9b",
+        storageBucket: "fir-authentication-79f9b.appspot.com",
+        messagingSenderId: "349450255143",
+        appId: "1:349450255143:web:77d96fdb1552d4d46a8702"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    const db = getFirestore();
+
+        const colRef = collection(db, 'books');
+
+        onSnapshot(colRef, (snapshot) => {
+            let books = []
+            snapshot.docs.forEach((doc) => {
+                books.push({ ...doc.data(), id: doc.id })
+            })
+            console.log(books);
+        })
+        
+
+    const submit = document.querySelector("#submit-btn");
+    let description = document.querySelector("#description");
+    let title = document.querySelector("#title");
+    let price = document.querySelector("#price");
+
+    let description_name, title_name, price_name;
+
+    description.onkeyup = function(){
+        description_name = description.value;
+    }
+
+    title.onkeyup = function () {
+        title_name = title.value;
+    }
+
+    price.onkeyup = function () {
+        price_name = price.value;
+    }
+
+    let img_url, img_url1, img_url2, img_url3, img_url4; 
+    submit.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        addDoc(colRef, {
+            title: title_name,
+            description: description_name,
+            price: price_name,
+            imgSrc1: img_url1,
+            imgSrc2: img_url2,
+            imgSrc3: img_url3,
+            imgSrc4: img_url4
+        })
+        .then(() => {
+            // addBookForm.reset();
+            location.reload();
+        })
+    })
+
+                // const DeleteBookForm = document.querySelector(".delete");
+                // DeleteBookForm.addEventListener('submit', (e) => {
+                //     e.preventDefault();
+
+                //     const docRef = doc(db, 'books', DeleteBookForm.id.value)
+                //     deleteDoc(docRef)
+                //     .then(() => {
+                //         DeleteBookForm.reset();
+                //     })
+                // })
+
+                // const getbookid = document.querySelector(".getdata");
+
+                // getbookid.addEventListener('submit', (e) => {
+                //     e.preventDefault();
+
+                //     const docRef = doc(db, 'books', getbookid.id.value);
+                //     onSnapshot(docRef, (doc) => {
+                //         console.log(doc.data(), doc.id);
+                //     })  
+                // })
+
+    // upload and retrieve image // 
+
+    var files = [];
+    var reader = new FileReader();
+
+    var namebox1 = document.getElementById("namebox1");
+    var namebox2 = document.getElementById("namebox2");
+    var namebox3 = document.getElementById("namebox3");
+    var namebox4 = document.getElementById("namebox4");
+    // var extlab = document.getElementById("extlab");
+    // var myimg = document.getElementById("myimg");
+    // var proglab = document.getElementById("upprogress");
+    var selbtn1 = document.getElementById("selbtn1");
+    var selbtn2 = document.getElementById("selbtn2");
+    var selbtn3 = document.getElementById("selbtn3");
+    var selbtn4 = document.getElementById("selbtn4");
+    var upbtn1 = document.getElementById("upbtn1");
+    var upbtn2 = document.getElementById("upbtn2");
+    var upbtn3 = document.getElementById("upbtn3");
+    var upbtn4 = document.getElementById("upbtn4");
+    // var downbtn = document.getElementById("downbtn");
+
+    var input = document.createElement("input");
+    input.type = 'file';
+
+    let extension, name;
+
+    input.onchange = e => {
+        files = e.target.files;
+
+        extension = GetFileExt(files[0]);
+        name = GetFileName(files[0]);
+
+        // namebox.innerHTML = name + extension;
+        // extlab.innerHTML = extension;
+
+        reader.readAsDataURL(files[0]);
+    }
+
+    reader.onload = function(){
+        // myimg.src = reader.result;
+        // console.log(myimg.src);
+    }
+
+    // Select image //
+    var btn1 = false, btn2 = false, btn3 = false, btn4 = false;
+
+    selbtn1.onclick = function(){
+        input.click();
+        btn1 = true;
+    }
+
+    selbtn2.onclick = function () {
+        input.click();
+        btn2 = true;
+    }
+
+    selbtn3.onclick = function () {
+        input.click();
+        btn3 = true;
+    }
+
+    selbtn4.onclick = function () {
+        input.click();
+        btn4 = true;
+    }
+
+    function GetFileExt(file){
+        var temp = file.name.split('.');
+        var ext = temp.slice((temp.length-1), (temp.length));
+        return '.' + ext[0];
+    }
+
+    function GetFileName(file){
+        var temp = file.name.split('.');
+        var fname = temp.slice(0,-1).join('.');
+        return fname;
+    }
+
+    // upload process ///
+
+    function UploadProcess() {
+        var ImgToUpload = files[0];
+
+        var ImgName = name + extension;
+
+        const metaData = {
+            contentType: ImgToUpload.type,
+        }
+
+        const storage = getStorage();
+
+        const storageRef = sRef(storage, "Images/"+ImgName);
+
+        const UploadTask = uploadBytesResumable(storageRef, ImgToUpload, metaData);
+
+        UploadTask.on('state-changed', (snapshot) => {
+            var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            // proglab.innerHTML = "Upload" + progress + "%";
+            console.log(progress);
+        },
+
+        (error) => {
+            alert('image not uploaded!!');
+        },
+
+        () => {
+            getDownloadURL(UploadTask.snapshot.ref).then((downloadURL) => {
+                SaveURLtoFirestore(downloadURL);
+                img_url = downloadURL;
+
+                if(btn1 == true){
+                    img_url1 = img_url;
+                    console.log(img_url1);
+                    btn1 = false;
+                }
+                if (btn2 == true) {
+                    img_url2 = img_url;
+                    console.log(img_url2);
+                    btn2 = false;
+                }
+                if (btn3 == true) {
+                    img_url3 = img_url;
+                    console.log(img_url3);
+                    btn3 = false;
+                }
+                if (btn4 == true) {
+                    img_url4 = img_url;
+                    console.log(img_url4);
+                    btn4 = false;
+                }
+                
+
+
+            });
+        }
+        );
+    }
+
+    // function for firestore database //
+
+    async function SaveURLtoFirestore(url){
+        var nam = name;
+        var ext = extension;
+
+        var ref = doc(db, "ImageLinks/"+name);
+
+        await setDoc(ref, {
+            imageName: (nam+ext),
+            ImageURL: url
+        })
+
+    }
+
+    async function GetImageFromFirestore(){
+        var nam = name;
+        
+        var ref = doc(db, 'ImageLinks/'+nam);
+
+        const docSnap = await getDoc(ref);
+
+        if(docSnap.exists()){
+            // myimg.src = docSnap.data().ImageURL;
+            console.log(docSnap.data().ImageURL);
+        }
+    }
+
+
+    // upbtn.onclick = namebox.innerHTML = name + extension;
+    
+    upbtn1.addEventListener('click', () => {
+        namebox1.innerHTML = name + extension;
+    })
+    upbtn1.onclick = UploadProcess;
+
+    upbtn2.addEventListener('click', () => {
+        namebox2.innerHTML = name + extension;
+    })
+    upbtn2.onclick = UploadProcess;
+
+    upbtn3.addEventListener('click', () => {
+        namebox3.innerHTML = name + extension;
+    })
+    upbtn3.onclick = UploadProcess;
+    
+    upbtn4.addEventListener('click', () => {
+        namebox4.innerHTML = name + extension;
+        // console.log(img_url);
+    })
+    upbtn4.onclick = UploadProcess;
+
+    // console.log(img_url1);
+    // console.log(img_url2);
+    // console.log(img_url3);
+    // console.log(img_url4);
+    
+    // downbtn.onclick = GetImageFromFirestore;
+
+
+</script>
